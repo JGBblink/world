@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
 @EnableEurekaClient
@@ -23,5 +21,18 @@ public class EurekaServiceApplication {
 	@RequestMapping(value = "/hi",method = RequestMethod.GET)
 	public String hello() {
 		return "端口号:" + port;
+	}
+
+
+	@RequestMapping(value = "/test/httpTest",method = RequestMethod.GET)
+	public void test(@RequestParam("name") String name,
+					 @RequestHeader(value = "age",defaultValue = "25") Integer age,
+					 @RequestAttribute(value = "address") String address,
+					 @RequestBody(required = false) String mm) {
+
+		System.out.println(name);
+		System.out.println(age);
+		System.out.println(address);
+		System.out.println(mm);
 	}
 }
