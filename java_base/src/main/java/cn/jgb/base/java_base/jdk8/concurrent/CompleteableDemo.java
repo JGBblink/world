@@ -6,6 +6,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 /**
  * @Description:compleabble示例
@@ -16,6 +17,13 @@ public class CompleteableDemo {
 
 
 	public static void main(String[] args) throws Exception{
+
+
+		List<CompletableFuture<String>> collect = Arrays.asList(1, 2, 3).stream().map(e -> CompletableFuture.supplyAsync(() -> "")).collect(Collectors.toList());
+
+
+
+
 
 		ExecutorService executorService = Executors.newFixedThreadPool(2);
 
