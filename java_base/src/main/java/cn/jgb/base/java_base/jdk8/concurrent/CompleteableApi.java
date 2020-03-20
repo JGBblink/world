@@ -7,7 +7,29 @@ public class CompleteableApi {
 
 
 	public static void main(String[] args) throws Exception{
-		demo6();
+		demo();
+	}
+
+	/**
+	 * 入门级示例:
+	 *  1.内部默认线程池使用ForkJoinPool.common线程池中执行
+	 *  2.这个线程池中的所有线程都是Daemon（守护）线程
+	 *  3.由于是守护线程,所以主线程结束,守护线程就结束
+	 * @throws InterruptedException
+	 * @throws ExecutionException
+	 */
+	private static void demo() throws InterruptedException, ExecutionException {
+		// 内部使用默认线程池,e.execute(new AsyncSupply<U>(d, f));此时异步线程已经开始执行
+		CompletableFuture future = CompletableFuture.supplyAsync(()->{
+			System.out.println("线程执行");
+			return "sadadsasd";
+		});
+
+		Thread.sleep(2000);
+		System.out.println("主流程");
+
+		// 阻塞,等待异步线程返回
+		System.out.println(future.get());
 	}
 
 	/**
