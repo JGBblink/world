@@ -1,15 +1,14 @@
-package cn.jgb.demo.web_demo;
+package cn.jgb.demo.starter;
 
-import cn.jgb.demo.starter.config.EnableUserClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@EnableUserClient
-public class WebDemoApplication {
+@RestController
+public class RunApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WebDemoApplication.class, args);
+		SpringApplication.run(RunApplication.class, args);
 	}
-
 }

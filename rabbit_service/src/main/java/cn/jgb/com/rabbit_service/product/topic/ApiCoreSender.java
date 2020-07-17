@@ -15,6 +15,7 @@ public class ApiCoreSender {
 	}
 
 	public void userQuery(String msg){
-		rabbitTemplate.convertAndSend("coreExchange", "api.core.user.query", msg);
+		//rabbitTemplate.convertAndSend("coreExchange", "api.core.user.query", msg);
+		rabbitTemplate.convertAndSend("rplus.service.logger:event:exchange", "rplus.service.logger:event:record.world", msg.getBytes());
 	}
 }

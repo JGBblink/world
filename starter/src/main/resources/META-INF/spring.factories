@@ -1,0 +1,1 @@
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.jgb.demo.starter.config.UserAutoConfigure

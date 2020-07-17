@@ -1,0 +1,7 @@
+1.此项目主要实验spring的config
+    :引入二方库后,是否需要加载二方库中的组件,可以通过两种方式设置
+    1.spring在启动的时候,会自动去扫描所引入包中的META-INF下面的*.factories文件,并加载配置的类
+        1.*.factories
+        2.@ConfigurationProperties、@Configuration
+    2.使用自定义注解,在启动类中手动加载该注解
+        1.@import、自定义注解
